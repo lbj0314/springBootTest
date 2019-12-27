@@ -1,0 +1,23 @@
+package com.iu.b1.robot;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class ArmTest {
+
+	@Autowired
+	private Arm arm1;
+	@Autowired
+	private Arm arm2;
+	
+	@Test
+	void test() {
+		assertNotNull(arm1);
+		assertNotNull(arm2);
+	}
+
+}

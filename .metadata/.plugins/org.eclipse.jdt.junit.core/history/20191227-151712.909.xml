@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="ArmTest" project="Boot_1" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="com.iu.b1.robot.ArmTest" time="0.224" displayname="ArmTest" uniqueid="[engine:junit-jupiter]/[class:com.iu.b1.robot.ArmTest]">
+    <testcase name="test" classname="com.iu.b1.robot.ArmTest" time="0.224" displayname="test()" uniqueid="[engine:junit-jupiter]/[class:com.iu.b1.robot.ArmTest]/[method:test()]"/>
+  </testsuite>
+</testrun>

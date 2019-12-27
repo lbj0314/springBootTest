@@ -1,0 +1,17 @@
+package com.iu.b1.config;
+
+import org.springframework.context.annotation.Configuration;
+
+import com.iu.b1.robot.LeftArm;
+
+@Configuration
+public class RobotConfig {
+	
+	public LeftArm getLeftArm() throws Exception{
+		LeftArm leftArm = new LeftArm();
+		
+		
+		return leftArm;
+	}
+	
+}

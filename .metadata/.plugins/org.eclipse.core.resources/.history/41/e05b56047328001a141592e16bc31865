@@ -1,0 +1,7 @@
+spring.datasource.username=spring01
+spring.datasource.password=Root!234
+spring.datasource.url=jdbc:mysql://192.168.114.100:3306/spring01
+# mysql 8 version은 cj가 들어감
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+# mysql 7 이하 version은 cj가 빠짐 = com.mysql.jdbc.Driver

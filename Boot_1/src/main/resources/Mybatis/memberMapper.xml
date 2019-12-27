@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <mapper namespace="com.iu.b1.member.MemberMapper">
+  <!-- insert -->
+  <insert id="memberJoin" parameterType="com.iu.b1.member.MemberVO">
+  	INSERT INTO members 
+  	VALUES(
+  		#{id}, #{pw}, #{name}, #{email}
+  	)
+  </insert>
+  <!-- login -->
+  <select id="memberLogin" parameterType="com.iu.b1.member.MemberVO" resultType="com.iu.b1.member.MemberVO">
+  	SELECT * FROM members
+  	WHERE id = #{id} AND pw = #{pw}
+  </select>
+  </mapper>
