@@ -1,12 +1,20 @@
 package com.iu.b1.member;
 
 public class MemberVO {
-	
+
 	private String id;
 	private String pw;
 	private String name;
 	private String email;
 
+	private MemberFilesVO memberFilesVO;
+
+	public MemberFilesVO getMemberFilesVO() {
+		return memberFilesVO;
+	}
+	public void setMemberFilesVO(MemberFilesVO memberFilesVO) {
+		this.memberFilesVO = memberFilesVO;
+	}
 	public String getId() {
 		return id;
 	}

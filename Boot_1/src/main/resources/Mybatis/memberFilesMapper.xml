@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <mapper namespace="com.iu.b1.member.MemberFilesMapper">
+
+  <insert id="memberFilesInsert" parameterType="com.iu.b1.member.MemberFilesVO">
+  	INSERT INTO memberfiles
+  	VALUES(
+  		0, #{fname}, #{oname}, #{id}
+  	)
+  </insert>
+  <select id="memberFilesSelect" resultType="com.iu.b1.member.MemberFilesVO" parameterType="com.iu.b1.member.MemberFilesVO">
+		SELECT * FROM memberFiles
+		WHERE fnum = #{fnum}
+	</select>
+  </mapper>

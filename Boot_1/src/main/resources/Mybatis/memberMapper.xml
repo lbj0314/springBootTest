@@ -12,8 +12,22 @@
   	)
   </insert>
   <!-- login -->
-  <select id="memberLogin" parameterType="com.iu.b1.member.MemberVO" resultType="com.iu.b1.member.MemberVO">
-  	SELECT * FROM members
-  	WHERE id = #{id} AND pw = #{pw}
-  </select>
+  <resultMap type="com.iu.b1.member.MemberVO" id="Login">
+		<id column="id" property="id"/>
+		<result column="pw" property="pw"/>
+		<result column="name" property="name"/>
+		<result column="email" property="email"/>
+		<association property="memberFilesVO" javaType="com.iu.b1.member.MemberFilesVO">
+			<id column="fnum" property="fnum"/>
+			<result column="fname" property="fname"/>
+			<result column="oname" property="oname"/>
+		</association>
+	</resultMap>
+	
+	<select id="memberLogin" resultMap="Login" parameterType="com.iu.b1.member.MemberVO">
+		SELECT * FROM members m
+		INNER JOIN memberFiles f
+		ON m.id = f.id
+		WHERE m.id = #{id} AND m.pw = #{pw}
+	</select>
   </mapper>
