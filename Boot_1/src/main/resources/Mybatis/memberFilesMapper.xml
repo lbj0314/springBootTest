@@ -12,7 +12,7 @@
   	)
   </insert>
   <select id="memberFilesSelect" resultType="com.iu.b1.member.MemberFilesVO" parameterType="com.iu.b1.member.MemberFilesVO">
-		SELECT * FROM memberFiles
+		SELECT * FROM memberfiles
 		WHERE fnum = #{fnum}
 	</select>
   </mapper>

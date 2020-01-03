@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <mapper namespace="com.iu.b1.notice.NoticeFilesMapper">
+  <!-- insert -->
+  <insert id="noticeFilesInsert" parameterType="com.iu.b1.notice.NoticeFilesVO">
+  	INSERT INTO noticefiles
+  	VALUES(
+  		0, #{fname}, #{oname}, #{num}
+  	)
+  </insert>
+  <select id="noticeFilesSelect" resultType="com.iu.b1.notice.NoticeFilesVO" parameterType="com.iu.b1.notice.NoticeFilesVO">
+		SELECT * FROM noticefiles
+		WHERE fnum = #{fnum}
+	</select>
+  </mapper>

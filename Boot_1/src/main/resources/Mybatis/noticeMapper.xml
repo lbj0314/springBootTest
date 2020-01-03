@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <mapper namespace="com.iu.b1.notice.NoticeMapper">
+  <!-- insert -->
+  <insert id="noticeWrite" parameterType="com.iu.b1.notice.NoticeVO">
+  	INSERT INTO notice 
+  	VALUES(
+  		0, #{title}, #{writer}, #{contents}, SYSDATE, #{hit}
+  	)
+  </insert>
+  <!-- Select -->
+  <resultMap type="com.iu.b1.notice.NoticeVO" id="notice">
+		<id column="num" property="num"/>
+		<result column="title" property="title"/>
+		<result column="writer" property="writer"/>
+		<result column="contents" property="contents"/>
+		<result column="regDate" property="regDate"/>
+		<result column="hit" property="hit"/>
+		<association property="noticeFilesVO" javaType="com.iu.b1.notice.NOticeFilesVO">
+			<id column="fnum" property="fnum"/>
+			<result column="fname" property="fname"/>
+			<result column="oname" property="oname"/>
+		</association>
+	</resultMap>
+	
+	<select id="noticeSelect" resultMap="notice" parameterType="com.iu.b1.notice.NoticeVO">
+		SELECT * FROM notice n
+		INNER JOIN noticefiles f
+		ON n.num = f.num
+		WHERE n.num = #{num}
+	</select>
+  </mapper>

@@ -11,6 +11,11 @@
   		#{id}, #{pw}, #{name}, #{email}
   	)
   </insert>
+  <!-- id Check -->
+  <select id="memberCheckId" resultType="com.iu.b1.member.MemberVO">
+  	SELECT id FROM members
+  	WHERE id = #{id}
+  </select>
   <!-- login -->
   <resultMap type="com.iu.b1.member.MemberVO" id="Login">
 		<id column="id" property="id"/>
@@ -26,7 +31,7 @@
 	
 	<select id="memberLogin" resultMap="Login" parameterType="com.iu.b1.member.MemberVO">
 		SELECT * FROM members m
-		INNER JOIN memberFiles f
+		INNER JOIN memberfiles f
 		ON m.id = f.id
 		WHERE m.id = #{id} AND m.pw = #{pw}
 	</select>
