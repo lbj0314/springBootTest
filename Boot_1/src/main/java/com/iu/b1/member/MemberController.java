@@ -33,7 +33,7 @@ public class MemberController {
 			mv.setViewName("fileDown");
 
 		}else {
-			mv.addObject("message", "No Image File");
+			mv.addObject("msg", "No Image File");
 			mv.addObject("path", "./memberPage");
 			mv.setViewName("common/result");
 		}
@@ -56,13 +56,13 @@ public class MemberController {
 
 
 		memberVO = memberService.memberLogin(memberVO);
-		String message="Login Fail";
+		String msg="Login Fail";
 
 		if(memberVO != null) {
-			message = "Login Success";
+			msg = "Login Success";
 			session.setAttribute("member", memberVO);
 		}
-		mv.addObject("message", message);
+		mv.addObject("msg", msg);
 		mv.addObject("path", "../");
 		mv.setViewName("common/result");	
 
@@ -93,13 +93,13 @@ public class MemberController {
 		} else {
 
 			int result = memberService.memberJoin(memberVO, files);
-			String message="Join Fail";
+			String msg="Join Fail";
 			String path = "../";
 			if(result>0) {
-				message="Join Success";
+				msg="Join Success";
 			}
 			mv.setViewName("common/result");
-			mv.addObject("message", message);
+			mv.addObject("msg", msg);
 			mv.addObject("path", path);
 		}
 		return mv;

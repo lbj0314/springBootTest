@@ -6,6 +6,7 @@ public class NoticeFilesVO {
 	private String fname;
 	private String oname;
 	private int num;
+	
 	public int getFnum() {
 		return fnum;
 	}

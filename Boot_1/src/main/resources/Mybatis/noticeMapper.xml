@@ -5,31 +5,45 @@
 
   <mapper namespace="com.iu.b1.notice.NoticeMapper">
   <!-- insert -->
-  <insert id="noticeWrite" parameterType="com.iu.b1.notice.NoticeVO">
+  <insert id="noticeWrite" parameterType="com.iu.b1.notice.NoticeVO" useGeneratedKeys="true" keyProperty="num">
   	INSERT INTO notice 
   	VALUES(
-  		0, #{title}, #{writer}, #{contents}, SYSDATE, #{hit}
+  		#{num}, #{title}, #{writer}, #{contents}, NOW(), 0
   	)
   </insert>
   <!-- Select -->
-  <resultMap type="com.iu.b1.notice.NoticeVO" id="notice">
+ <!--  <resultMap type="com.iu.b1.notice.NoticeVO" id="notice">
 		<id column="num" property="num"/>
 		<result column="title" property="title"/>
 		<result column="writer" property="writer"/>
 		<result column="contents" property="contents"/>
 		<result column="regDate" property="regDate"/>
 		<result column="hit" property="hit"/>
-		<association property="noticeFilesVO" javaType="com.iu.b1.notice.NOticeFilesVO">
+		<association property="noticeFilesVO" javaType="com.iu.b1.notice.NoticeFilesVO">
 			<id column="fnum" property="fnum"/>
 			<result column="fname" property="fname"/>
 			<result column="oname" property="oname"/>
 		</association>
 	</resultMap>
-	
 	<select id="noticeSelect" resultMap="notice" parameterType="com.iu.b1.notice.NoticeVO">
 		SELECT * FROM notice n
 		INNER JOIN noticefiles f
 		ON n.num = f.num
 		WHERE n.num = #{num}
-	</select>
+	</select> -->
+	<!-- list -->
+<!-- 	<select id="noticeList" resultType="com.iu.b1.notice.NoticeVO" parameterMap="com.iu.b1.notice.NoticeVO">
+		SELECT * FROM notice
+	</select> -->
+	<!-- delete -->
+	<delete id="noticeDelete" parameterType="com.iu.b1.notice.NoticeVO">
+		DELETE notice
+		WHERE num = #{num}
+	</delete>
+	<!-- update -->
+	<update id="noticeUpdate" parameterType="com.iu.b1.notice.NoticeVO">
+		UPDATE notice
+		SET title = #{title}, contents = #{contents}
+		WHERE num = #{num} 
+	</update>
   </mapper>

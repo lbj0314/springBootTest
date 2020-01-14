@@ -5,12 +5,22 @@
 
   <mapper namespace="com.iu.b1.notice.NoticeFilesMapper">
   <!-- insert -->
-  <insert id="noticeFilesInsert" parameterType="com.iu.b1.notice.NoticeFilesVO">
+<!--   <insert id="noticeFilesInsert" parameterType="com.iu.b1.notice.NoticeFilesVO" useGeneratedKeys="true" keyProperty="fnum">
   	INSERT INTO noticefiles
   	VALUES(
-  		0, #{fname}, #{oname}, #{num}
+  		#{fnum}, #{fname}, #{oname}, #{num}
   	)
+  </insert> -->
+  <insert id="noticeFilesInsert" parameterType="java.util.List">
+  	INSERT INTO noticefiles
+  	VALUES
+  	<foreach collection="list" item="item" index="index" separator=",">
+  	(
+  		0, #{item.fname}, #{item.oname}, #{item.num}
+  	)
+  	</foreach>
   </insert>
+  
   <select id="noticeFilesSelect" resultType="com.iu.b1.notice.NoticeFilesVO" parameterType="com.iu.b1.notice.NoticeFilesVO">
 		SELECT * FROM noticefiles
 		WHERE fnum = #{fnum}

@@ -2,14 +2,22 @@ package com.iu.b1.notice;
 
 import java.sql.Date;
 
+import javax.validation.constraints.NotEmpty;
+
 public class NoticeVO {
 	
 	private int num;
+	@NotEmpty
 	private String title;
+	@NotEmpty
 	private String writer;
+	@NotEmpty
 	private String contents;
 	private Date regDate;
 	private int hit;
+	
+	private NoticeFilesVO noticeFilesVO;
+	
 	public int getNum() {
 		return num;
 	}
@@ -46,7 +54,10 @@ public class NoticeVO {
 	public void setHit(int hit) {
 		this.hit = hit;
 	}
-	
-	
-	
+	public NoticeFilesVO getNoticeFilesVO() {
+		return noticeFilesVO;
+	}
+	public void setNoticeFilesVO(NoticeFilesVO noticeFilesVO) {
+		this.noticeFilesVO = noticeFilesVO;
+	}
 }
